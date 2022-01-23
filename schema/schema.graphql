@@ -1,0 +1,25 @@
+scalar Date;
+scalar JSON;
+
+type Todo {
+    id: ID!
+    value: String!
+    done: Boolean!
+
+    doesnt: Exist
+}
+
+type Query {
+    todos: [Todo]
+}
+
+input UpdateTodoInput {
+    id: ID!
+    done: Boolean!
+}
+
+type Mutation {
+    create(value: String!): Todo!
+    update(input: UpdateTodoInput): Todo!
+    remove(id: ID!): Todo!
+}
